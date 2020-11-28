@@ -1,0 +1,15 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <div th:object="${hotel}">
+        <h1 th:text="*{name}"></h1>
+        <div class="row">
+         <img th:src="*{getThumbnailUrl()}" />
+         <a href="@{/hotels/{hotel_id}/reservations/new(hotel_id=*{hotel.id})}">予約はこちらから</a>
+        </div>
+        <p th:text="*{description}"></p>
+      </div>
+      <div class="pull-right">
+        <a class="btn btn-link" href="/hotels">一覧画面へ</a>
+      </div>
+    </div>
+  </div>

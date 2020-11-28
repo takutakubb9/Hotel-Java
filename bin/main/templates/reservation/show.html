@@ -1,0 +1,30 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+        <h1 th:text="${title}">予約機能</h1>
+        <div th:object="${reservation}">
+            <div>
+                <label>名前</label>
+                <p th:text="*{name}"></p>
+            </div>
+            <div>
+                <label>メールアドレス</label>
+                <p th:text="*{email}"></p>
+            </div>
+            <div>
+                <label>チェックイン</label>
+                <p th:text="*{startDate}"></p>
+            </div>
+            <div>
+                <label>チェックアウト</label>
+                <p th:text="*{endDate}"></p>
+            </div>  
+            <div>
+                <label>人数</label>
+                <p th:text="*{numberOfPeople}"></p>
+            </div>  
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-link" href="/hotels">一覧画面へ</a>
+        </div>
+    </div>
+</div>

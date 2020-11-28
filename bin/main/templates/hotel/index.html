@@ -1,0 +1,25 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+        <div class="parallax-window" data-parallax="scroll" th:data-image-src="@{/images/nagano-nature.jpg}"></div>
+        <div th:if="${#strings.isEmpty(queryName)}">
+            <h1 th:text="${title}"></h1>
+        </div>
+        <div th:unless="${#strings.isEmpty(queryName)}">
+            <h1>「<span th:text="${queryName}"></span>」の検索結果</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-3 my-2" th:each="hotel:${hotels}" th:object="${hotel}">
+                <div class="card">
+                    <img th:src="*{getThumbnailUrl()}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="*{name}"></h5>
+                        <p class="card-text" th:text="*{description}"></p>
+                        <a th:href="@{/hotels/{id}(id=*{id})}" class="btn btn-primary">ホテルの詳細へ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-secondary" href="/hotels/new">新規作成</a>
+        <div class="parallax-window" data-parallax="scroll" th:data-image-src="@{/images/nagano.jpg}"></div>
+    </div>
+</div>
